@@ -4,4 +4,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Hello, world. You're at the myapp home page.")
+    content = "<html><body><h1>Welcome to Little Lemon</h1></body></html>"
+    # return HttpResponse("Hello, world. You're at the myapp home page.")
+    return HttpResponse(content)
