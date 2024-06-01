@@ -25,5 +25,16 @@ def load_template(request):
     return HttpResponse(template.render(context, request)) 
 
 def url_path(request):
-    path = request.path
-    return HttpResponse(path, content_type='text/html', charset='utf-8')
+    msg=f""" <br>
+    <br>path: {request.path}
+    <br>path_info: {request.path_info}
+    <br>full_path: {request.get_full_path()}
+    <br>is_secure: {request.is_secure()}
+    <br> scheme: {request.scheme}
+    <br> method: {request.method}
+    <br> encoding: {request.encoding}
+     <br> User agent: {request.META['HTTP_USER_AGENT']}
+   
+    """
+    # path = request.path
+    return HttpResponse(msg, content_type='text/html', charset='utf-8')
