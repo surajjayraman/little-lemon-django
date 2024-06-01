@@ -33,7 +33,8 @@ def url_path(request):
     <br> scheme: {request.scheme}
     <br> method: {request.method}
     <br> encoding: {request.encoding}
-     <br> User agent: {request.META['HTTP_USER_AGENT']}
+    <br> User agent: {request.META['HTTP_USER_AGENT']}
+    <br> Address: {request.META['REMOTE_ADDR']}
    
     """
     # path = request.path
