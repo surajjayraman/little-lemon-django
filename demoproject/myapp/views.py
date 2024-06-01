@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from datetime import datetime
+from django.template import loader 
 
 def home(request):
     content = "<html><body><h1>Welcome to Little Lemon</h1></body></html>"
@@ -19,4 +20,6 @@ def menu(request):
     return HttpResponse(content)  
 
 def load_template(request):
-    return render(request, 'myapp/index.html', {})  
+    template = loader.get_template('myapp/template/index.html') 
+    context={}  
+    return HttpResponse(template.render(context, request)) 
