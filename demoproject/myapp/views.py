@@ -16,4 +16,7 @@ def display_datetime(request):
 
 def menu(request):
     content = "<html><head><style>ul {list-style-type: none; margin: 0; padding: 0;} li {display: inline; margin-right: 10px; color: blue;}</style></head><body><h1>Menu</h1><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul></body></html>"
-    return HttpResponse(content)    
+    return HttpResponse(content)  
+
+def load_template(request):
+    return render(request, 'myapp/index.html', {})  
