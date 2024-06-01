@@ -23,3 +23,7 @@ def load_template(request):
     template = loader.get_template('myapp/template/index.html') 
     context={}  
     return HttpResponse(template.render(context, request)) 
+
+def url_path(request):
+    path = request.path
+    return HttpResponse(path, content_type='text/html', charset='utf-8')
