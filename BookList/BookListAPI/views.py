@@ -11,6 +11,8 @@ def books(request):
     if request.method == 'GET':
         books = Book.objects.all().values()
         return JsonResponse({"books":list(books)})
+        # return JsonResponse({"books":'list of books'})
+
     elif request.method == 'POST':
         title = request.POST.get('title')
         author = request.POST.get('author')
