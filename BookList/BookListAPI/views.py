@@ -7,6 +7,7 @@ from django.forms.models import model_to_dict
 # Rest framework DRF imports
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.decorators import api_view
 
 
 # Create your views here.
@@ -32,6 +33,7 @@ def books(request):
             return JsonResponse({'error':'true','message':'required field missing'},status=400)
 
         return JsonResponse(model_to_dict(book), status=201)
-    
+
+@api_view()    
 def getDrf(request):
-    return Response ('List of books fromm DRF', status=status.HTTP_200_OK)
+    return Response ('List of books from DRF', status=status.HTTP_200_OK)
