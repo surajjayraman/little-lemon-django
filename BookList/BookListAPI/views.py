@@ -4,6 +4,10 @@ from .models import Book
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 
+# Rest framework DRF imports
+from rest_framework.response import Response
+from rest_framework import status
+
 
 # Create your views here.
 @csrf_exempt
@@ -28,3 +32,6 @@ def books(request):
             return JsonResponse({'error':'true','message':'required field missing'},status=400)
 
         return JsonResponse(model_to_dict(book), status=201)
+    
+def getDrf(request):
+    return Response ('List of books fromm DRF', status=status.HTTP_200_OK)
