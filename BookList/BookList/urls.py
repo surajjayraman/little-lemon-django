@@ -20,7 +20,5 @@ from BookListAPI import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/',views.books),
-    path('drf/',views.getDrf),
     path('api/',include('BookListAPI.urls'))
 ]
