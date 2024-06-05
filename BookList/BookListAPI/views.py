@@ -37,3 +37,10 @@ def books(request):
 @api_view(['GET','POST'])    
 def getDrf(request):
     return Response ('List of books from DRF', status=status.HTTP_200_OK)
+
+# Different types of routing examples
+class Orders():
+	@staticmethod
+	@api_view()
+	def listOrders(request):
+         return Response({'message':'list of orders'}, 200)
