@@ -34,6 +34,6 @@ def books(request):
 
         return JsonResponse(model_to_dict(book), status=201)
 
-@api_view()    
+@api_view(['GET','POST'])    
 def getDrf(request):
     return Response ('List of books from DRF', status=status.HTTP_200_OK)
