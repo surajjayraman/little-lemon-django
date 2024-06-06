@@ -54,4 +54,19 @@ class BookView(APIView):
     def put(self, request, pk):
         return Response({"title":request.data.get('title')}, status.HTTP_200_OK)
 
+# write the business logic when a ViewSet deals with a single resource.
+# class BookViewSet(viewsets.ViewSet):
 
+# Create a class BookList that extends APIView
+class BookList(APIView):
+    def get(self, request):
+        return Response({"message":"list of books"}, status.HTTP_200_OK)
+
+    def post(self, request):
+        return Response({"message":"book created"}, status.HTTP_201_CREATED)
+    
+    def put(self, request):
+        return Response({"message":"book updated"}, status.HTTP_200_OK)
+    
+    def delete(self, request):
+        return Response({"message":"book deleted"}, status.HTTP_204_NO_CONTENT)
