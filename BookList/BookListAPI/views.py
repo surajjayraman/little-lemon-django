@@ -35,7 +35,7 @@ def books(request):
 
         return JsonResponse(model_to_dict(book), status=201)
 
-@api_view(['GET','POST'])    
+@api_view(['GET','POST'])
 def getDrf(request):
     return Response ('List of books from DRF', status=status.HTTP_200_OK)
 
@@ -50,7 +50,7 @@ class Orders():
 class BookView(APIView):
     def get(self, request, pk):
          return Response({"message":"single book with id " + str(pk)}, status.HTTP_200_OK)
-    
+
     def put(self, request, pk):
         return Response({"title":request.data.get('title')}, status.HTTP_200_OK)
 
@@ -64,9 +64,9 @@ class BookList(APIView):
 
     def post(self, request):
         return Response({"message":"book created"}, status.HTTP_201_CREATED)
-    
+
     def put(self, request):
         return Response({"message":"book updated"}, status.HTTP_200_OK)
-    
+
     def delete(self, request):
         return Response({"message":"book deleted"}, status.HTTP_204_NO_CONTENT)
