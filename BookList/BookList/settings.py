@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # DRF
     'BookListAPI', # Add this line to the list of installed apps
+    'debug_toolbar', # Add this line to the list of installed apps
 ]
 
 MIDDLEWARE = [
