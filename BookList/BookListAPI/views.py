@@ -76,3 +76,14 @@ class BookList(APIView):
 
     def delete(self, request):
         return Response({"message":"book deleted"}, status.HTTP_204_NO_CONTENT)
+
+# Create a class to handle a single book item
+class Book(APIView):
+    def get(self, request, pk):
+        return Response({"message":"single book with id " + str(pk)}, status.HTTP_200_OK)
+
+    def put(self, request, pk):
+        return Response({"title":request.data.get('title')}, status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        return Response({"message":"book deleted"}, status.HTTP_204_NO_CONTENT)
