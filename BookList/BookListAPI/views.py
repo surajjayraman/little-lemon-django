@@ -62,7 +62,7 @@ class BookList(APIView):
     def get(self, request):
         author = request.GET.get('author')
         if(author):
-            return Response({"message":"list of books by" + author}, status.HTTP_200_OK)
+            return Response({"message":"list of books by " + author}, status.HTTP_200_OK)
 
         return Response({"message":"list of books"}, status.HTTP_200_OK)
 
