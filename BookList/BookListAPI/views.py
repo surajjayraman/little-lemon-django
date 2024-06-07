@@ -87,3 +87,9 @@ class Book(APIView):
 
     def delete(self, request, pk):
         return Response({"message":"book deleted"}, status.HTTP_204_NO_CONTENT)
+
+#  Create a view function to handle Toronto Open Data API
+
+@api_view(['GET','POST'])
+def getOpenData(request):
+    return Response ('List of books from DRF', status=status.HTTP_200_OK)
