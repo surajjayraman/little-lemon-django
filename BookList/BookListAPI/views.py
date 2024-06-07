@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import Book
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
+import requests
 
 # Rest framework DRF imports
 from rest_framework.response import Response
@@ -92,4 +93,6 @@ class Book(APIView):
 
 @api_view(['GET','POST'])
 def getOpenData(request):
-    return Response ('Toronto Open Data: Hi There!', status=status.HTTP_200_OK)
+    festival_api = "https://secure.toronto.ca/cc_sr_v1/data/edc_eventcal_APR?limit=500"
+    response = requests.get(festival_api)
+    return Response ('Toronto Open Data: Hi There!' +response, status=status.HTTP_200_OK)
