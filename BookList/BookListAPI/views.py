@@ -94,5 +94,5 @@ class Book(APIView):
 @api_view(['GET','POST'])
 def getOpenData(request):
     festival_api = "https://secure.toronto.ca/cc_sr_v1/data/edc_eventcal_APR?limit=500"
-    response = requests.get(festival_api)
+    response = requests.get(festival_api).json()
     return Response (response, status=status.HTTP_200_OK)
