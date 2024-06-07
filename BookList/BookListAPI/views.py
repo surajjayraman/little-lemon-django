@@ -92,4 +92,4 @@ class Book(APIView):
 
 @api_view(['GET','POST'])
 def getOpenData(request):
-    return Response ('List of books from DRF', status=status.HTTP_200_OK)
+    return Response ('Toronto Open Data: Hi There!', status=status.HTTP_200_OK)
