@@ -24,3 +24,8 @@ def menu_items(request):
     return Response(serializer.data)
     # return Response(menu_items.values())
 
+@api_view(['GET'])
+def single_item (request, pk):
+    menu_item = MenuItem.objects.get(pk=pk)
+    serializer = MenuItemSerializer(menu_item)
+    return Response(serializer.data)
