@@ -9,5 +9,6 @@ urlpatterns = [
     # path('books/<int:pk>',views.BookView.as_view()),
     path('booklist',views.BookList.as_view()),
     path('books/<int:pk>',views.Book.as_view()),
+    path('books/drf',views.BookViewDrf.as_view()),
 
 ]
