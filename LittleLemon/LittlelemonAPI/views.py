@@ -20,6 +20,7 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
 @api_view(['GET'])
 def menu_items(request):
     menu_items = MenuItem.objects.all()
-    serializer = MenuItemSerializer(menu_items, many=True)
-    return Response(serializer.data)
+    # serializer = MenuItemSerializer(menu_items, many=True)
+    # return Response(serializer.data)
+    return Response(menu_items.values())
 
