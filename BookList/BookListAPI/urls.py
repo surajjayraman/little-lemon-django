@@ -10,5 +10,6 @@ urlpatterns = [
     path('booklist',views.BookList.as_view()),
     path('books/<int:pk>',views.Book.as_view()),
     path('books/drf',views.BookViewAll.as_view()),
+    path('books/drf/<int:pk>',views.SingleBookView.as_view()),
 
 ]
