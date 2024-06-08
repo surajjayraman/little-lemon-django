@@ -12,7 +12,22 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework import generics
 from .serializers import BookSerializer
+from rest_framework import generics
+from .models import Book
+from .serializers import BookSerializer
 
+
+# Create a view Class to handle BookListAPI using DRF
+# class BookViewDrf(generics.ListCreateAPIView):
+#     queryset = Book.objects.all()
+#     serializer_class = BookSerializer
+class BookViewAll(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+class SingleBookView(generics.RetrieveUpdateAPIView):
+    queryset = Book.objects.all
+    serializer_class = BookSerializer
 
 # Create your views here.
 @csrf_exempt
@@ -98,8 +113,3 @@ def getOpenData(request):
     festival_api = "https://secure.toronto.ca/cc_sr_v1/data/edc_eventcal_APR?limit=500"
     response = requests.get(festival_api).json()
     return Response (response, status=status.HTTP_200_OK)
-
-# Create a view Class to handle BookListAPI using DRF
-class BookViewDrf(generics.ListCreateAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer

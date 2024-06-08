@@ -11,5 +11,3 @@ class Book(models.Model):
             models.Index(fields=['price']),
         ]
 
-
-
