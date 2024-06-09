@@ -18,14 +18,14 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
 
 
 # view function to list all menu items
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def menu_items(request):
     menu_items = MenuItem.objects.all()
     serializer = MenuItemSerializer(menu_items, many=True)
     return Response(serializer.data)
     # return Response(menu_items.values())
 
-@api_view(['GET'])
+@api_view()
 def single_item (request, pk):
     # menu_item = MenuItem.objects.get(pk=pk)
     menu_item = get_object_or_404(MenuItem, pk=pk)
