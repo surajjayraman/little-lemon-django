@@ -9,7 +9,7 @@ from .serializers import MenuItemSerializer, CategorySerializer
 from django.shortcuts import get_object_or_404
 
 # view function to list all menu items
-@api_view()
+@api_view(['GET', 'POST'])
 def menu_items(request):
     menu_items = MenuItem.objects.select_related('category').all()
     serializer = MenuItemSerializer(menu_items, many=True)
