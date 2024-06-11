@@ -4,6 +4,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
+
 from .models import MenuItem, Category
 from .serializers import MenuItemSerializer, CategorySerializer
 from django.shortcuts import get_object_or_404
@@ -15,6 +17,14 @@ def menu_items(request):
         menu_items = MenuItem.objects.select_related('category').all()
         serializer = MenuItemSerializer(menu_items, many=True)
         return Response(serializer.data)
+    if request.method == 'POST':
+        serializer = MenuItemSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status.HTTP_201_CREATED)
+
+
+           
 
 @api_view()
 def single_item (request, pk):
