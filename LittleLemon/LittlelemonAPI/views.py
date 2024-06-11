@@ -11,9 +11,10 @@ from django.shortcuts import get_object_or_404
 # view function to list all menu items
 @api_view(['GET', 'POST'])
 def menu_items(request):
-    menu_items = MenuItem.objects.select_related('category').all()
-    serializer = MenuItemSerializer(menu_items, many=True)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        menu_items = MenuItem.objects.select_related('category').all()
+        serializer = MenuItemSerializer(menu_items, many=True)
+        return Response(serializer.data)
 
 @api_view()
 def single_item (request, pk):
